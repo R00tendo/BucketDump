@@ -5,7 +5,7 @@
 
 ## Installation
 ```
-go install https://github.com/R00tendo/BucketDump@latest
+go install github.com/R00tendo/BucketDump@latest
 ```
 
 ## Usage
