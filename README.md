@@ -1,4 +1,4 @@
-![logo](https://github.com/R00tendo/BucketDump/assets/72181445/921bd9c0-7354-4f33-af3d-8c544120b266)
+![Logo](https://github.com/R00tendo/BucketDump/assets/72181445/d005bad0-1cd7-4dc3-af6b-cf62e6210590)
 
 ## Description
 <b>A minimalistic tool to dump a whole S3 bucket to your local computer WIHTOUT AN API KEY. Note that for this program to work the main page of the bucket has to be bucket listing.</b>
