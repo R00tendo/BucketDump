@@ -17,7 +17,8 @@ func Dump(keys []string, AWSUrl string, saveDir string) {
 
 		keyUrl := AWSUrl + key
 
-		content := RetUrl.Get(keyUrl)
+		content, err := RetUrl.Get(keyUrl)
+		ErrorCheck.Check(err, 0)
 
 		if stat, err := os.Stat(saveDir + key); err == nil {
 			if stat.IsDir() {
@@ -25,9 +26,9 @@ func Dump(keys []string, AWSUrl string, saveDir string) {
 			}
 		}
 		outputHandle, err := os.OpenFile(saveDir+key, os.O_CREATE|os.O_WRONLY, 0600)
-		ErrorCheck.Check(err)
+		ErrorCheck.Check(err, 1)
 
 		_, err = outputHandle.Write(content)
-		ErrorCheck.Check(err)
+		ErrorCheck.Check(err, 1)
 	}
 }

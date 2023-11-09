@@ -4,6 +4,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/R00tendo/BucketDump/cmd/ErrorCheck"
 	"github.com/R00tendo/BucketDump/cmd/Log"
 	"github.com/R00tendo/BucketDump/cmd/RetUrl"
 )
@@ -11,7 +12,9 @@ import (
 func Get(AWSUrl string) []string {
 	var keys []string
 
-	body := string(RetUrl.Get(AWSUrl))
+	bodyB, err := RetUrl.Get(AWSUrl)
+	ErrorCheck.Check(err, 1)
+	body := string(bodyB)
 	if !strings.Contains(body, "<ListBucketResult xmlns") {
 		Log.Msg("Bucket doesn't have listing enabled", "error")
 		os.Exit(0)
